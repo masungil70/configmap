@@ -10,7 +10,7 @@ env:
   USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
 jobs: 
-  My-Deploy-Job:
+  my-build-job:
     runs-on: ubuntu-latest
 
     steps: 
@@ -42,7 +42,8 @@ jobs:
           echo "USER_PASSWORD = ${{ env.USER_PASSWORD }}" 
           echo "USER_PASSWORD = ${{ secrets.USER_PASSWORD }}" 
   
-  My-Deploy-Job2:
+  my-deploy-job:
+    needs: my-build-job
     name: 배포 작업
     runs-on: self-hosted
 
