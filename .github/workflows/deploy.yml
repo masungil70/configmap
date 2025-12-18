@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+env:
+  NAME: kosa
+  USERNAME: kosa
 
 jobs: 
   My-Deploy-Job:
@@ -26,3 +29,10 @@ jobs:
 
       - name: 환경변수 모두 출력
         run: env
+
+      - name: 환경변수 NAME 출력
+        run: echo ${{ env.NAME }}
+        
+      - name: 환경변수 USERNAME 출력
+        run: echo "USERNAME = ${{ env.USERNAME }}" 
+        
